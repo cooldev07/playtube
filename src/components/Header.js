@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Logo from "../assets/download.png"
-import Hamburger from "../assets/downloads2.png"
-import Profile from "../assets/download3.png"
+import logo from "../assets/coollogo_com-23986673.png"
 import { useDispatch } from 'react-redux'
 import {  openSidebar} from "../store/sidebarSlice"
 import { Link, useNavigate} from 'react-router-dom'
@@ -9,6 +8,7 @@ import {setSearchResult} from "../store/searchSlice"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 // 
+
 import { auth } from "../firebas"
 import {  signOut } from "firebase/auth";
 import { useEffect } from 'react';
@@ -74,7 +74,12 @@ function hanldeSignout(e){
         onClick={handleOpen}
         className='cursor-pointer h-8 w-8'  // Remove `md:hidden` to ensure visibility across all sizes
       />
-      <img src={Logo} className='h-16 md:h-20' alt='logo' />
+     <Link
+         to="/body"
+     > <img src={logo} 
+    
+      className='cursor-pointer h-16 md:h-16 pl-4' alt='logo' />
+      </Link>
     </div> 
     
     {/* Search Form */}
