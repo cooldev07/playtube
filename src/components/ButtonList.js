@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {setSearchResult} from "../store/searchSlice"
+import {setSearchResult,setSearchFor} from "../store/searchSlice"
 import { setSortbyOld,  setSortbyNew, setSortbyReset} from "../store/videoSlice"
 import { useSelector } from 'react-redux';
 const ButtonList = () => {
@@ -18,6 +18,7 @@ const ButtonList = () => {
     const json=await data.json()
     console.log(json)
     dispatch(setSearchResult(json.items))
+    dispatch(setSearchFor(search))
     navigate("/search")
     }
 function handleSortBy(e){

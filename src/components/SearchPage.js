@@ -4,8 +4,13 @@ import VideoCard from './VideoCard'
 import { Link } from 'react-router-dom'
 const SearchPage = () => {
     const searchResult=useSelector((store)=>store.search?.searchResult)
-    console.log(searchResult)
+    const searchFor=useSelector((store)=>store.search?.searchFor)
   return (
+    <>
+    <h3 className="text-lg pl-4 py-4 text-center font-semibold text-gray-900">
+  Search Results for <span className="text-red-600 font-bold italic text-2xl">{searchFor}</span>
+</h3>
+
     <div className='flex flex-wrap items-center justify-center gap-4'>
     {searchResult.map((val) => (
       <Link
@@ -17,7 +22,7 @@ const SearchPage = () => {
       </Link>
     ))}
   </div>
-  
+  </>
   )
 }
 

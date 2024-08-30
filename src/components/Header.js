@@ -7,6 +7,7 @@ import { Link, useNavigate} from 'react-router-dom'
 import {setSearchResult} from "../store/searchSlice"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
+import { setSearchFor } from '../store/searchSlice'
 // 
 
 import { auth } from "../firebas"
@@ -48,6 +49,7 @@ const data=await fetch(YOUTUBE_SEARCH_RESULTS_API+`q=${search}&key=${authY}`)
 const json=await data.json()
 console.log(json)
 dispatch(setSearchResult(json.items))
+dispatch(setSearchFor(search))
 navigate("/search")
 }
 
